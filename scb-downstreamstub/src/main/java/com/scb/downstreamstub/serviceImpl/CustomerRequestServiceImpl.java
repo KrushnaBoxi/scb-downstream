@@ -27,8 +27,8 @@ public class CustomerRequestServiceImpl implements CustomerRequestService {
 
 	@Override
 	public CustomerResponse customerRequestHandleService(CustomerRequestData customerRequestData) {
-		String response = readFile(propertiesConfig.getResponseFilePath());
-		customerRequestData.setDownStreamResponse(response);
+		//String response = readFile(propertiesConfig.getResponseFilePath());
+		customerRequestData.setDownStreamResponse("Hello from downstream micro-services");
 		return commonMethods.getSuccessResponse(customerRequestData);
 	}
 
