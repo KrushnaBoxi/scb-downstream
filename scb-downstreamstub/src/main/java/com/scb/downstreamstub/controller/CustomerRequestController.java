@@ -41,7 +41,7 @@ public class CustomerRequestController {
 	public CustomerRequest customerRequestHandleExampleRequest( ) {
 
 		return CustomerRequest.builder().customerAccType("Saving").customerId(22).customerName("Test Customer")
-				.customerRegion("India").corelationId(200).build();
+				.customerRegion("India").correlationId(200).build();
 		// return
 		// customerRequestService.customerRequestHandleService(customerRequest);
 

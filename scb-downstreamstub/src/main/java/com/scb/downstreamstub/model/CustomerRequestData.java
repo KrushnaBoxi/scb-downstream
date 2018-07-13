@@ -20,7 +20,7 @@ public class CustomerRequestData {
 	private String customerAccType;
 	private String customerRegion;
 	private String timeStamp;
-	private long corelationId;
+	private long correlationId;
 	private long transactionId;
 	private String downStreamResponse;
 }

@@ -20,7 +20,7 @@ public class SCBCommonMethods {
 		CustomerRequestData customerDataReposatory = CustomerRequestData.builder()
 				.customerAccType(customerRequest.getCustomerAccType()).customerId(customerRequest.getCustomerId())
 				.customerName(customerRequest.getCustomerName()).customerRegion(customerRequest.getCustomerRegion())
-				.timeStamp(getCurrentDateTime()).corelationId(customerRequest.getCorelationId()).transactionId(getTransactionId()).build();
+				.timeStamp(getCurrentDateTime()).correlationId(customerRequest.getCorrelationId()).transactionId(getTransactionId()).build();
 		return customerDataReposatory;
 	}
 
@@ -49,7 +49,7 @@ public class SCBCommonMethods {
 			return false;
 		}else if("USA".equals(customerRequest.getCustomerRegion())){
 			return false;
-		}else if(customerRequest.getCorelationId() == 0){
+		}else if(customerRequest.getCorrelationId() == 0){
 			return false;
 		}
 		return true;
