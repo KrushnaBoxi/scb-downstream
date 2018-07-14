@@ -4,6 +4,7 @@ package com.scb.downstreamstub.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,8 @@ public class CustomerRequestController {
 	private CustomerRequestService customerRequestService;
 	@Autowired
 	private JmsTemplate jmsTemplate;
+	@Autowired
+	private com.scb.downstreamstub.jms.JMSCorrelationalConfig jmsCorrelationalConfig;
 
 	@RequestMapping(value = ReceiverConstants.CUSTOMER_REQUEST_HANDLE_URL, method = RequestMethod.POST, produces = { "application/json", "application/xml" })
 	public ResponseEntity<CustomerRequestData> customerRequestHandle(@RequestBody CustomerRequestData customerRequestData ) {
@@ -58,5 +61,15 @@ public class CustomerRequestController {
 		return customerResponse;
 
 	}
+	
+	
+	/*@RequestMapping(value ="/jmsTest", method = RequestMethod.POST)
+	public CustomerRequestData customerJMStest(@RequestBody CustomerRequestData customerRequestData) {
+		//log.info("JMS Request received "+ message);
+		CustomerRequestData responseFromJMS = jmsCorrelationalConfig.send(customerRequestData);
+		log.info("Response: "+ responseFromJMS );
+		
+		return responseFromJMS;
 
+	}*/
 }
